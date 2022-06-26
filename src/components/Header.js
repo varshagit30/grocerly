@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "./img/logo.svg"
+import avatar from "./img/avatar1.png"
 import {MdAddShoppingCart} from "react-icons/md";
+
 const Header =() => {
     return (
     <header className="fixed z-50 w-screen p-6 px-16"> 
@@ -26,8 +28,13 @@ const Header =() => {
 
         </ul>
         <div className="relative flex items-center justify-center">
-            <MdAddShoppingCart className="text-textColor text-2xl ml-8"/>
-        </div>
+            <MdAddShoppingCart className="text-textColor text-2xl ml-8 cursor-pointer"/>
+            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 flex items-center">
+        <p className="text-sm text-white font-semibold flex text-center">2</p>
+    </div>
+      </div>
+      <img src={avatar} className="w-10 min-w-[30px] h-10 min-h-[30px] drop-shadow-xl ml-6 cursor-pointer"
+      alt="userprofile"></img>
     </div>
 
 
