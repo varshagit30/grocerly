@@ -19,7 +19,7 @@ const HomeContainer= () => {
                 </div>
             </div>
             <p className=" text-left text-[2.5rem] lg:text-[4.5rem] font-bold tracking-wide text-black ">
-            The fastest delivery in {" "}
+            Delivery at you doorstep in {" "}
             <span className="text-orange-500 text-[4rem] lg:text-[4rem] ">Your City</span>
             </p>
             <p className="text-base text-black text-center md:text-left">

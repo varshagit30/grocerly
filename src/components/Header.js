@@ -9,7 +9,7 @@ import {motion} from "framer-motion"
 
 const Header =() => {
     return (
-    <header className="fixed z-50 w-screen p-6 px-16"> 
+    <header className="fixed z-50 w-screen bg-slate-50 p-6 px-16"> 
     {/* desktop*/}
     <div className="hidden md:flex w-full h-full">
         <div className="flex items-center gap-1">
