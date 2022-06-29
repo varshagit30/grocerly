@@ -2,6 +2,10 @@ import React from "react";
 import logo from "./img/logo.svg"
 import avatar from "./img/avatar1.png"
 import {MdAddShoppingCart} from "react-icons/md";
+import {motion} from "framer-motion"
+
+
+
 
 const Header =() => {
     return (
@@ -33,8 +37,9 @@ const Header =() => {
         <p className="text-sm text-white font-semibold flex text-center">2</p>
     </div>
       </div>
-      <img src={avatar} className="w-10 min-w-[30px] h-10 min-h-[30px] drop-shadow-xl ml-6 cursor-pointer"
-      alt="userprofile"></img>
+      <motion.img whileTap={{scale : 0.6}}
+       src={avatar} className="w-10 min-w-[30px] h-10 min-h-[30px] drop-shadow-xl ml-6 cursor-pointer"
+      alt="userprofile"/>
     </div>
 
 

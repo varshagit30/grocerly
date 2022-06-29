@@ -1,8 +1,11 @@
 import React from 'react'
+import HomeContainer from "./HomeContainer";
 
 const Maincontainer = () => {
   return (
-    <div>Maincontainer</div>
+    <div className ="w-full h-auto flex flex-col itmes-center justify-center">
+      <HomeContainer/>
+      </div>
   )
 }
 
