@@ -1,14 +1,17 @@
 import React from 'react'
 import HomeContainer from "./HomeContainer";
-import category from "./category";
+import RowContainer from "./RowContainer";
 
 const Maincontainer = () => {
   return (
+    
     <div className ="w-full h-auto flex flex-col itmes-center justify-center">
       <HomeContainer/>
-      <category> </category>
-      </div>
-  )
-}
+      <RowContainer/>
 
-export default Maincontainer
+    
+    </div>
+  );
+};
+
+export default Maincontainer;

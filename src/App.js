@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React from "react";
 import {Route, Routes} from "react-router-dom";
-import { CreateContainer, Header, Maincontainer, HomeContainer, } from "./components";
+import { CreateContainer, Header, Maincontainer, HomeContainer } from "./components";
 
 const App = () => {
   return (
