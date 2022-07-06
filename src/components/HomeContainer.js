@@ -9,7 +9,9 @@ import {motion} from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
 
+
 const HomeContainer= () => {
+    
     return (
         <section className="grid grid-cols-1 md:grid-cols-2 gap-2 " id="home">
             <div className="py-2 flex-1 flex-col items-start md:items-center justify-start">
@@ -93,7 +95,7 @@ const HomeContainer= () => {
                     <p className="text-2xl text-black font-semibold capitalize relative
                     before:absolute before:rounded-lg before:content before:w-32 before:h-1
                     before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-blue-100 to-blue-600 transition-all ease-in-out duration-100">
-                         Our Fresh & Healthy Fruits </p>
+                         Our Fresh & Healthy Products </p>
                          <div className="hidden md:flex gap-3 items-center justify-center ">
                             <motion.div 
                             whileTap={{scale:0.75}} 

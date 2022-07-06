@@ -41,17 +41,17 @@ const Header =() => {
     <header className="fixed z-50 w-screen bg-slate-50 p-3 px-4 md:p-6 md:px-16"> 
     {/* desktop*/}
     <div className="hidden md:flex w-full h-full">
-        <Link to={"/home"} className="flex items-center gap-1">
+        <Link to={"/"} className="flex items-center gap-1">
             <img src={logo} className="w-10 object-cover" alt="logo"/>
             <p className="text-headingColor text-x1 font-bold">Grocerly</p>
 
         </Link>
         <ul className="flex items-center gap-8 ml-auto">
-            <li className="text-base text-textColor hover:text-headingColor duration-100
-            transition-all ease-in-out cursor-pointer" >Home</li>
+            <Link to={"/"}  className="text-base text-textColor hover:text-headingColor duration-100
+            transition-all ease-in-out cursor-pointer" >Home</Link>
 
-            <li className="text-base text-textColor hover:text-headingColor duration-100
-            transition-all ease-in-out cursor-pointer">About Us</li>
+            <Link to {..."/about"} className="text-base text-textColor hover:text-headingColor duration-100
+            transition-all ease-in-out cursor-pointer">About Us</Link>
 
             <li className="text-base text-textColor hover:text-headingColor duration-100
             transition-all ease-in-out cursor-pointer">Contact</li>
