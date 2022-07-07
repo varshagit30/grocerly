@@ -96,7 +96,7 @@ const HomeContainer= () => {
                     before:absolute before:rounded-lg before:content before:w-32 before:h-1
                     before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-blue-100 to-blue-600 transition-all ease-in-out duration-100">
                          Our Fresh & Healthy Products </p>
-                         <div className="hidden md:flex gap-3 items-center justify-center ">
+                         <div className="hidden md:flex gap-3 items-center justify-center my-2 ">
                             <motion.div 
                             whileTap={{scale:0.75}} 
                             className=" w-8 h-8 rounded-lg bg-blue-300 hover:bg-blue-500 cursor-pointer transition-all duration-100 items-center justify-center ">

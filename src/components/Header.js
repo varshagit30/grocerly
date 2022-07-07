@@ -62,7 +62,7 @@ const Header =() => {
         </ul>
         <div className="relative flex items-center justify-center">
             <MdAddShoppingCart className="text-textColor text-2xl ml-8 cursor-pointer"/>
-            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 flex items-center">
+            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 flex items-center justify-center">
         <p className="text-sm text-white font-semibold flex text-center">2</p>
         </div>
       </div>
