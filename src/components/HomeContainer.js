@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import deliv from "./img/deliv.png";
 import m2 from "./img/m2.png";
 import p1 from "./img/p1.png";
@@ -10,7 +10,11 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
 
 
+
 const HomeContainer= () => {
+    const [scrollValue, setscrollValue] = useState(0)
+
+useEffect(() => {}, [scrollValue])
     
     return (
         <section className="grid grid-cols-1 md:grid-cols-2 gap-2 " id="home">
@@ -96,21 +100,27 @@ const HomeContainer= () => {
                     before:absolute before:rounded-lg before:content before:w-32 before:h-1
                     before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-blue-100 to-blue-600 transition-all ease-in-out duration-100">
                          Our Fresh & Healthy Products </p>
-                         <div className="hidden md:flex gap-3 items-center justify-center my-2 ">
+                         <div className="hidden md:flex gap-3 items-center justify-center ">
                             <motion.div 
                             whileTap={{scale:0.75}} 
-                            className=" w-8 h-8 rounded-lg bg-blue-300 hover:bg-blue-500 cursor-pointer transition-all duration-100 items-center justify-center ">
+                            className=" w-8 h-8 rounded-lg bg-blue-300 hover:bg-blue-500 cursor-pointer transition-all duration-100 items-center justify-center "
+                            onClick={()=>setscrollValue(-200)}
+                            >
                                 <MdChevronLeft className="text-2xl text-white mx-1 my-1"/>
                             </motion.div>
                             <motion.div
                             whileTap={{scale:0.75}} 
-                            className="w-8 h-8 rounded-lg bg-blue-300 hover:bg-blue-500 cursor-pointer transition-all duration-100 items-center justify-center  ">
+                            className="w-8 h-8 rounded-lg bg-blue-300 hover:bg-blue-500 cursor-pointer transition-all duration-100 items-center justify-center "
+                            onClick={()=>setscrollValue(200)}
+                            >
                                 <MdChevronRight className="text-2xl text-white mx-1 my-1 "/>
                             </motion.div>
 
                          </div>
                 </div> 
-                <RowContainer flag={true}/>
+                <RowContainer 
+                scrollValue ={scrollValue}
+                flag={true}/>
 
             </section>
     
