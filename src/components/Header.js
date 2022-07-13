@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import logo from "./img/logo.svg"
-import avatar from "./img/avatar1.png"
+import logo from "./img/logo.svg";
+import avatar from "./img/avatar1.png";
+import { NavLink, useNavigate } from "react-router-dom";
 import {MdAddShoppingCart, MdAdd, MdLogout} from "react-icons/md";
 import {motion} from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -33,6 +34,7 @@ const Header =() => {
           else{
             setIsMenu(!isMenu);
           }
+          console.log(user);
 
 
     }
@@ -50,11 +52,19 @@ const Header =() => {
             <Link to={"/"}  className="text-base text-textColor hover:text-headingColor duration-100
             transition-all ease-in-out cursor-pointer" >Home</Link>
 
-            <Link to {..."/about"} className="text-base text-textColor hover:text-headingColor duration-100
-            transition-all ease-in-out cursor-pointer">About Us</Link>
+            <li>
+            <Link to ={"/about"}
+            className="text-base text-textColor hover:text-headingColor duration-100
+                transition-all ease-in-out cursor-pointer"> About Us
+            </Link>
+            </li>
 
-            <li className="text-base text-textColor hover:text-headingColor duration-100
-            transition-all ease-in-out cursor-pointer">Contact</li>
+            <li>
+            <Link to ={"/contact"}
+                 className="text-base text-textColor hover:text-headingColor duration-100
+                 transition-all ease-in-out cursor-pointer">Contact
+            </Link>
+            </li>
 
             <li className="text-base text-textColor hover:text-headingColor duration-100
             transition-all ease-in-out cursor-pointer">Menu</li>

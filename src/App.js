@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React from "react";
 import {Route, Routes} from "react-router-dom";
-import { CreateContainer, Header, Maincontainer, HomeContainer } from "./components";
+import { CreateContainer, Header, Maincontainer, HomeContainer, Contact, About} from "./components";
 
 const App = () => {
   return (
@@ -10,11 +10,16 @@ const App = () => {
    <Header/>
    <main className="mt-24 p-8 w-full">
    <Routes>
-    <Route path="/header" element={<Header/>}/>
+   
+    <Route path="/about" element={<About/>}/>
+    <Route path="/contact" element={<Contact />}/>
     <Route path="/*" element={<Maincontainer />} />
     <Route path="/createItem" element={<CreateContainer />} />
     <Route path="/" element={<HomeContainer/>}/>
-   </Routes>
+    
+    </Routes>
+
+
    </main>
     </div>
     </AnimatePresence>
