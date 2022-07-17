@@ -3,6 +3,7 @@ import HomeContainer from "./HomeContainer";
 import RowContainer from "./RowContainer";
 import {motion} from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import MenuContainer from "./MenuContainer";
 
 
 const Maincontainer = () => {
@@ -42,6 +43,8 @@ useEffect(() => {}, [scrollValue])
       scrollValue ={scrollValue}
       flag={true}/>
     </section>
+
+    <MenuContainer/>
   </div>
   );
 };

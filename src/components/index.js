@@ -5,3 +5,4 @@ export {default as HomeContainer} from "./HomeContainer";
 export {default as RowContainer} from "./RowContainer";
 export {default as Contact} from "./Contact";
 export {default as About} from "./About";
+export {default as MenuContainer} from "./MenuContainer";

@@ -1,34 +1,35 @@
-import p1 from "../img/p1.png";
-import g1 from "../img/g1.png";
-import meat from "../img/meat.png";
-import pd1 from "../img/pd1.png";
-
-export const heroData = [
+export const categories = [
     {
-        id : 1,
-        name: "Fresh Pomegranate",
-        price : "100", 
-        imagesrc: p1
+        id: 1,
+        name: "Fruits",
+        URLParamname: "cherry",
     },
 
     {
-        id : 2,
+        id: 2,
+        name: "Veggies",
+        urlParamname: "veg",
+
+    },
+    {
+        id: 3,
+        name: "Meat",
+        urlParamname: "fish",
+    },
+    {
+        id: 4,
         name: "Staples",
-        price : "500", 
-        imagesrc: g1
+        urlParamname: "atta",
+    },
+    {
+        id: 5,
+        name: "Beverages",
+        urlParamname: "soft drink",
+    },
+    {
+        id: 6,
+        name: "Snacks",
+        urlParamname: "chips",
     },
 
-    {
-        id : 3, 
-        name: "Fresh Meat", 
-        price : "400", 
-        imagesrc: meat
-    },
-
-    {
-        id : 4, 
-        name: "Mint leaves", 
-        price : "80", 
-        imagesrc: pd1
-    },
-]
+];
