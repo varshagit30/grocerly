@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "./img/logo.svg";
 import avatar from "./img/avatar1.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Navigate } from "react-router-dom";
 import {MdAddShoppingCart, MdAdd, MdLogout} from "react-icons/md";
 import {motion} from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -37,7 +37,16 @@ const Header =() => {
           console.log(user);
 
 
-    }
+    };
+    const logout = () => {
+        setIsMenu(false);
+        localStorage.clear();
+
+        dispatch({
+          type: actionType.SET_USER,
+          user: null,
+        });
+      };
 
     return (
     <header className="fixed z-50 w-screen bg-slate-50 p-3 px-4 md:p-6 md:px-16"> 
@@ -50,24 +59,24 @@ const Header =() => {
         </Link>
         <ul className="flex items-center gap-8 ml-auto">
             <Link to={"/"}  className="text-base text-textColor hover:text-headingColor duration-100
-            transition-all ease-in-out cursor-pointer" >Home</Link>
+            transition-all ease-in-out cursor-pointer" onClick={()=> setIsMenu(false)} >Home</Link>
 
             <li>
             <Link to ={"/about"}
             className="text-base text-textColor hover:text-headingColor duration-100
-                transition-all ease-in-out cursor-pointer"> About Us
+                transition-all ease-in-out cursor-pointer"onClick={()=> setIsMenu(false)}> About Us
             </Link>
             </li>
 
             <li>
             <Link to ={"/contact"}
                  className="text-base text-textColor hover:text-headingColor duration-100
-                 transition-all ease-in-out cursor-pointer">Contact
+                 transition-all ease-in-out cursor-pointer" onClick={()=> setIsMenu(false)} >Contact
             </Link>
             </li>
 
             <li className="text-base text-textColor hover:text-headingColor duration-100
-            transition-all ease-in-out cursor-pointer">Menu</li>
+            transition-all ease-in-out cursor-pointer" onClick={()=> setIsMenu(false)}>Menu</li>
 
         </ul>
         <div className="relative flex items-center justify-center">
@@ -90,7 +99,7 @@ const Header =() => {
                 <Link to = {"/createItem"}>
                     <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-300 
                     transition-all duration-100 ease-in-out text-textColor
-                    text-base">New Item <MdAdd/>
+                    text-base" onClick={()=> setIsMenu(false)}>New Item <MdAdd/>
                     </p>
                 </Link>
                 

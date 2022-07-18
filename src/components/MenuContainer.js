@@ -29,6 +29,7 @@ const MenuContainer = () => {
                   {category.name}
                  </p>
               </div>
+              
             ))}
            </div>
       </div>
