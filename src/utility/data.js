@@ -2,7 +2,7 @@ export const categories = [
     {
         id: 1,
         name: "Fruits",
-        URLParamname: "cherry",
+        urlParamname: "cherry",
     },
 
     {
