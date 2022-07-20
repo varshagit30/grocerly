@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "./img/logo.svg";
 import avatar from "./img/avatar1.png";
 import { NavLink, useNavigate, Navigate } from "react-router-dom";
-import {MdAddShoppingCart, MdAdd, MdLogout} from "react-icons/md";
+import {MdShoppingCart, MdAdd, MdLogout} from "react-icons/md";
 import {motion} from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {app} from "../firebase.config";
@@ -17,7 +17,7 @@ const Header =() => {
     const firebaseAuth= getAuth(app);
     const provider =new GoogleAuthProvider();
 
-    const [{ user }, dispatch] = useStateValue();
+    const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
     const [isMenu, setIsMenu] = useState(false);
 
     const login = async() => {
@@ -47,6 +47,12 @@ const Header =() => {
           user: null,
         });
       };
+      const showCart = () => {
+        dispatch({
+          type: actionType.SET_CART_SHOW,
+          cartShow: !cartShow,
+        });
+      };
 
     return (
     <header className="fixed z-50 w-screen bg-slate-50 p-3 px-4 md:p-6 md:px-16"> 
@@ -59,7 +65,7 @@ const Header =() => {
         </Link>
         <ul className="flex items-center gap-8 ml-auto">
             <Link to={"/"}  className="text-base text-textColor hover:text-headingColor duration-100
-            transition-all ease-in-out cursor-pointer" onClick={()=> setIsMenu(false)} >Home</Link>
+            transition-all ease-in-out cursor-pointer" onClick={()=> setIsMenu(false)}  >Home</Link>
 
             <li>
             <Link to ={"/about"}
@@ -79,12 +85,15 @@ const Header =() => {
             transition-all ease-in-out cursor-pointer" onClick={()=> setIsMenu(false)}>Menu</li>
 
         </ul>
-        <div className="relative flex items-center justify-center">
-            <MdAddShoppingCart className="text-textColor text-2xl ml-8 cursor-pointer"/>
-            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 flex items-center justify-center">
-        <p className="text-sm text-white font-semibold flex text-center">2</p>
+        <div className="relative flex items-center justify-center mx-1"
+         onClick={showCart}>
+          <MdShoppingCart className="text-textColor text-2xl ml-8 cursor-pointer"/>
+          {cartItems && cartItems.length > 0 && (
+          <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 flex items-center justify-center">
+            <p className="text-sm text-white font-semibold flex text-center">{cartItems.length}</p>
+          </div>
+          )}
         </div>
-      </div>
 
       <div className="relative">
         <motion.img whileTap={{scale : 0.6}}

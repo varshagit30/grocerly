@@ -5,13 +5,14 @@ import { motion} from "framer-motion";
 import RowContainer from './RowContainer';
 import { useStateValue } from '../context/StateProvider';
 
+
 const MenuContainer = () => {
   const [filter, setFilter] = useState("cherry");
   
   const [{foodItems}, dispatch] = useStateValue();
   
   return (
-    <section className="w-full  my-6" id="menu">
+    <section className="w-full  my-2" id="menu">
       <div className="w-full flex flex-col items-center justify-center">
         <p className="text-2xl text-black font-semibold capitalize relative
         before:absolute before:rounded-lg before:content before:w-32 before:h-1
@@ -25,10 +26,10 @@ const MenuContainer = () => {
            <motion.div  
            whileTap={{scale : 0.75}} 
            key ={category.id} 
-           className={'group ${ filter === category.urlParamname ? "bg-blue-300" : "bg-gray-100"} bg-gray-200 w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl first-letter flex-col gap-3 items-center justify-center hover:bg-blue-300 '} 
+           className={'group ${ filter === category.name ? "bg-blue-300" : "bg-gray-100"} bg-gray-200 w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl first-letter flex-col gap-3 items-center justify-center hover:bg-blue-300 '} 
            onClick={()=> setFilter(category.name)}
            >
-            <div className={'w-10 h-10 rounded-full ${ filter === category.urlParamname ? "bg-gray-100" :  "bg-blue-300"} mx-7 my-4 bg-blue-300 group-hover:bg-cardColor flex items-center justify-center'}>
+            <div className={'w-10 h-10 rounded-full ${ filter === category.name ? "bg-gray-100" :  "bg-blue-300"} mx-7 my-4 bg-blue-300 group-hover:bg-cardColor flex items-center justify-center'}>
               <GiFruitBowl 
               className="text-textColor group-hover:text-textColor text-lg "
               />
@@ -40,7 +41,7 @@ const MenuContainer = () => {
           
           ))}
         </div>
-        <div className="w-full">
+        <div className="w-full  ">
           <RowContainer  
           flag={false}
           data={foodItems?.filter((n) => n.category == filter)}
@@ -48,6 +49,7 @@ const MenuContainer = () => {
         </div>
       </div>
     </section>
+    
   );
 };
 

@@ -7,3 +7,4 @@ export {default as Contact} from "./Contact";
 export {default as About} from "./About";
 export {default as Loader} from "./Loader";
 export {default as MenuContainer} from "./MenuContainer";
+export {default as CartContainer} from "./CartContainer";

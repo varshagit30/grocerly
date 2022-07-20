@@ -5,19 +5,20 @@ import {motion} from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import MenuContainer from "./MenuContainer";
 import { useStateValue } from "../context/StateProvider";
+import CartContainer from "./CartContainer";
 
 
 const Maincontainer = () => {
-  const [{foodItems}, dispatch] = useStateValue();
+  const [{foodItems, cartShow}, dispatch] = useStateValue();
   const [scrollValue, setscrollValue] = useState(0);
 
-useEffect(() => {}, [scrollValue]);
+useEffect(() => {}, [scrollValue, cartShow]);
     
   return (
   <div className ="w-full h-full flex flex-col itmes-center justify-center">
     <HomeContainer/>
     
-    <section className="w-full  my-6">
+    <section className="w-full  my-8">
       <div className="w-full flex items-center justify-between">
         <p className="text-2xl text-black font-semibold capitalize relative
         before:absolute before:rounded-lg before:content before:w-32 before:h-1
@@ -49,6 +50,9 @@ useEffect(() => {}, [scrollValue]);
     </section>
 
     <MenuContainer/>
+    {cartShow && (
+      <CartContainer/>
+    )}
   </div>
   );
 };

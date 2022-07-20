@@ -1,31 +1,45 @@
 import React, { useEffect,useRef } from 'react';
-import milk from "./img/milk.png";
-import mng4 from "./img/mng4.jfif";
-import bak from "./img/bak4.png";
-import st from "./img/f5.png";
-import ch from "./img/f8.png";
 import { MdShoppingCart} from "react-icons/md";
 import { motion } from 'framer-motion';
+import { useStateValue} from '../context/StateProvider';
+import { actionType } from '../context/reducer';
+import { useState } from 'react';
 
 const RowContainer = ({ flag, data, scrollValue }) => 
 {
-    const rowContainer = useRef()
+    const rowContainer = useRef();
+    const [items, setItems] = useState([])
+
+    const [{ cartItems }, dispatch] = useStateValue();
+    const addtocart = (item) => {
+        dispatch({
+            type : actionType.SET_CARTITEMS,
+            cartItems : items,
+        });
+        localStorage.setItem("cartItems",JSON.stringify(items))
+    };
+
+
     useEffect(() => {
         rowContainer.current.scrollLeft += scrollValue;
 
-    },[scrollValue])
+    },[scrollValue]);
+
+    useEffect(() => {
+        addtocart()
+    }, [items]);
     
   return (
     <div 
     ref={rowContainer}
-      className= {'w-full my-12 overflow-x-scroll scrollbar-none scroll-smooth flex items-center gap-2  ${ flag  ? "overflow-x-scroll "  : "overflow-x-hidden flex-wrap" }'} >
+      className= {'w-full my-12 overflow-x-scroll scrollbar-none  scroll-smooth flex items-center gap-2  ${ flag  ? "overflow-x-scroll "  : "overflow-x-hidden flex-wrap" }'} >
         {data && data.map(item => (
         <div 
         key={item.id} 
-        className="w-[275px] h-[210px] min-w-[300px] md:w-[340px] p-1  bg-cardOverlay rounded-lg hover:drop-shadow-lg backdrop-blur-lg">
+        className="w-[275px] h-[200px] min-w-[300px] md:w-[340px] p-1  bg-cardOverlay rounded-lg hover:drop-shadow-lg backdrop-blur-lg">
             <div className="w-full flex items-center justify-between">
                 <motion.div 
-                className="w-40 h-20 drop-shadow-xl"
+                className="w-40 h-20 drop-shadow-xl "
                 whileHover={{scale:1.2}} 
                 >
                 <img 
@@ -38,7 +52,8 @@ const RowContainer = ({ flag, data, scrollValue }) =>
                 <motion.div 
                  whileTap={{scale:0.75}}
                  className="w-8 h-8 rounded-full bg-blue-400  flex items-center justify-center 
-                 cursor-pointer hover:shadow-md ">
+                 cursor-pointer hover:shadow-md "
+                 onClick={()=> setItems([...cartItems,item])}>
                     <MdShoppingCart className="text-white"
                     />
                     
