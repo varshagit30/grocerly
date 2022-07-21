@@ -41,7 +41,7 @@ const MenuContainer = () => {
           
           ))}
         </div>
-        <div className="w-full  ">
+        <div className="w-full flex-wrap">
           <RowContainer  
           flag={false}
           data={foodItems?.filter((n) => n.category == filter)}

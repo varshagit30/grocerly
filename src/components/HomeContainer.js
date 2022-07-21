@@ -4,6 +4,7 @@ import p1 from "./img/p1.png";
 import g1 from "./img/g1.png";
 import meat from "./img/meat.png";
 import s1 from "./img/s1.png";
+import { motion } from "framer-motion";
 
 
 const HomeContainer= () => {
@@ -32,13 +33,14 @@ const HomeContainer= () => {
                      {" "} Get fresh groceries in just one click! 
                 </p>
 
-                <button 
+                <motion.button 
+                whileTap={{scale : 0.75}}
                 type="button"
                 className="bg-gradient-to-br from-green-400 to bg-blue-500 w-full 
-                px-14 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100 md:w-auto my-2"
+                px-14 py-2 rounded-lg hover:shadow-lg  md:w-auto my-2"
                 >
                     Order Now
-                </button>
+                </motion.button>
             </div>
 
             <div className=" py-2 flex-1 flex items-center">
@@ -49,18 +51,18 @@ const HomeContainer= () => {
                         <div className="w-190 min-w-[190px] p-4 bg-cardOverlay backdrop-blur-md rounded-lg 
                         flex flex-col items-center justify-center cursor-pointer drop-shadow-lg">
                             <img src={p1}className="w-40 -mt-20" alt="p1"/>
-                            <p className="text-base  text-gray-500 font-semibold my-2">Pomegranate</p>
+                            <p className="text-base  text-gray-500 font-semibold my-2">Fresh Fruits</p>
                              <p>
                                 <span className="text-base text-red-600 font-semibold my-3">Rs. </span>100
                                 </p>
                             
                         </div>
-                        <div className="w-190 min-w-[190px] p-4 bg-cardOverlay backdrop-blur-md rounded-lg 
+                        <div className="w-190 min-w-[190px] p-4  bg-cardOverlay backdrop-blur-md rounded-lg 
                         flex flex-col items-center justify-center cursor-pointer drop-shadow-lg">
                             <img src={g1}className="w-40 -mt-20" alt="p1"/>
-                            <p className="text-base  text-gray-500 font-semibold my-1">Staples</p>
+                            <p className="text-base  text-gray-500 font-semibold my-1 ">Staples</p>
                              <p>
-                                <span className="text-base text-red-600 font-semibold my-3">Rs. </span>500
+                                <span className="text-base text-red-600 font-semibold my-3"> Rs. </span>500
                                 </p>
                             
                         </div>

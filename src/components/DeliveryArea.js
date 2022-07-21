@@ -2,19 +2,18 @@ import React, {useEffect} from 'react';
 import CartContainer from './CartContainer';
 import { useStateValue } from '../context/StateProvider';
 
+const DeliveryArea = () => {
+    const [{cartShow}, dispatch] = useStateValue();
+    useEffect(() => {}, [cartShow]);
 
-const Contact = () => {
-  const [{cartShow}, dispatch] = useStateValue();
-  useEffect(() => {}, [cartShow]);
   return (
     <div>
-      Contact
-      {cartShow && (
+        DeliveryArea
+        {cartShow && (
       <CartContainer/>
     )}
-      
     </div>
   )
 }
 
-export default Contact;
+export default DeliveryArea;

@@ -81,8 +81,12 @@ const Header =() => {
             </Link>
             </li>
 
-            <li className="text-base text-textColor hover:text-headingColor duration-100
-            transition-all ease-in-out cursor-pointer" onClick={()=> setIsMenu(false)}>Menu</li>
+            <li >
+            <Link to = {"/delivery"}
+            className="text-base text-textColor hover:text-headingColor duration-100
+            transition-all ease-in-out cursor-pointer" onClick={()=> setIsMenu(false)}>Delivery Areas
+            </Link>
+            </li>
 
         </ul>
         <div className="relative flex items-center justify-center mx-1"

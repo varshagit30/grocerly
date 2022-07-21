@@ -2,14 +2,18 @@ import { AnimatePresence, MotionConfig } from 'framer-motion';
 import React from 'react';
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import {motion} from "framer-motion";
-import {BiMinus, BiPlus} from  "react-icons/bi";
 import { RiRefreshFill } from "react-icons/ri";
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
 import EmptyCart from "./img/emptyCart.svg";
+import CartItem from './CartItem';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const CartContainer = () => {
     const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
+    const [flag, setFlag] = useState(1);
+    const [tot, setTot] = useState(0);
 
     const showCart = () => {
         dispatch({
@@ -17,6 +21,26 @@ const CartContainer = () => {
           cartShow: !cartShow,
         });
       };
+
+      useEffect(() => {
+        let totalPrice = cartItems.reduce(function (accumulator, item) {
+          return accumulator + item.qty * item.price;
+        }, 0);
+        setTot(totalPrice);
+        console.log(tot);
+      }, [tot, flag]);
+    
+      const clearCart = () => {
+        dispatch({
+          type: actionType.SET_CART,
+          cartItems: [],
+        });
+    
+        localStorage.setItem("cartItems", JSON.stringify([]));
+      };
+
+
+
   return (
     <motion.div 
      inital={{opacity : 0, x : 200}} 
@@ -45,31 +69,11 @@ const CartContainer = () => {
             scrollbar-none">
                 {/* cart item */}
                 {cartItems && cartItems.map(item => (
-                    <div key ={item.id} className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2">
-                    <img src ={item?.imageURL} 
-                    className="w-20 h-20 max-w-[60px] rounded-full object-contain"
-                    alt=" " />
-                    {/* name sec */}
-                    <div className="flex flex-col gap-2">
-                        <p className="text-base text-gray-100"> 
-                        {item?.title}
-                        </p>
-                        <p className=" text-sm block text-gray-300 font-semibold">Rs. {item?.price}</p>
-                    </div>
-                    {/* button sec */}
-                    <div className=" group flex items-center gap-2 ml-auto cursor-pointer">
-                        <motion.div whileTap={{scale :0.75}}>
-                            <BiMinus className="text-gray-100" />
-                        </motion.div>
-                        <p className=" w-5 h-5 rounded-sm bg-cartBg text-gray-100 flex 
-                        items-center justify-center"> 
-                        {item.qty}
-                        </p>
-                        <motion.div whileTap={{scale :0.75}}>
-                            <BiPlus  className="text-gray-100"/>
-                            </motion.div>
-                    </div>
-                </div>
+                    <CartItem 
+                     key ={item.id} 
+                     item ={item}
+                     setFlag={setFlag}
+                     flag ={flag}/>
                 ))}
             </div>
             {/* cart total */}
@@ -77,7 +81,7 @@ const CartContainer = () => {
             justify-evenly px-8 py-1 ">
                 <div className=" w-full flex items-center justify-between">
                     <p className="text-gray-400 text-sm">Sub Total</p>
-                    <p className="text-gray-400 text-sm "> Rs. 100</p>
+                    <p className="text-gray-400 text-sm "> Rs. {tot}</p>
                 </div>
                 <div className="w-full flex items-center justify-between">
                     <p className="text-gray-400 text-sm">Delivery</p>
@@ -86,7 +90,7 @@ const CartContainer = () => {
                 <div className=" w-full border-b border-gray-600 my-2"></div>
                 <div className="w-full flex items-center justify-between">
                     <p className="text-gray-200 text-lg font-semibold">Total</p>
-                    <p className="text-gray-200 text-lg font-semibold">Rs.125 </p>
+                    <p className="text-gray-200 text-lg font-semibold">Rs. {tot + 25} </p>
                 </div>
                 
                 {user ? (

@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect } from "react";
 import {Route, Routes} from "react-router-dom";
-import { CreateContainer, Header, Maincontainer, HomeContainer, Contact, About, RowContainer, MenuContainer, CartContainer} from "./components";
+import { CreateContainer, Header, Maincontainer, HomeContainer, Contact, About, RowContainer, MenuContainer, CartContainer, DeliveryArea} from "./components";
 import { actionType } from "./context/reducer";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utility/firebaseFunction";
@@ -32,11 +32,13 @@ const App = () => {
    <Routes>
     <Route path="/about" element={<About/>}/>
     <Route path="/contact" element={<Contact />}/>
+    <Route path="/delivery" element={<DeliveryArea/>}/>
     <Route path="/" element={<Maincontainer />} />
     <Route path="/createItem" element={<CreateContainer />} />
     <Route path="/" element={<HomeContainer/>}/>
     <Route path="/" element={<MenuContainer/>}/>
-    <Route path="/" element={<CartContainer/>}/>
+    <Route path="/about" element={<CartContainer/>}/>
+    <Route path="/contact" element={<CartContainer/>}/>
     </Routes>
 
 
