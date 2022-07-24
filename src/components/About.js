@@ -23,15 +23,15 @@ const About = () => {
         </div>
 
         <div className=" grid md:grid-cols-3 gap-1 px-2 py-10 text-center cursor-pointer ">
-          <motion.div whileTap={{scale : 0.75}}  className=" border py-8  rounded-xl shadow-xl bg-blue-100">
+          <motion.div whileHover={{scale : 0.9}}  className=" border py-8  rounded-xl shadow-xl bg-blue-100">
             <p className="text-5xl font-bold text-indigo-600 ">100%</p>
             <p className="text-gray-400 mt-2 ">Genuine Products</p>
           </motion.div>
-          <motion.div whileTap={{scale : 0.75}} className=" border py-8 rounded-xl shadow-xl bg-blue-100">
+          <motion.div whileHover={{scale : 0.9}} className=" border py-8 rounded-xl shadow-xl bg-blue-100">
             <p className=" text-5xl font-bold text-indigo-600">24/7</p>
             <p className=" text-gray-400 mt-2">Delivery</p>
           </motion.div>
-          <motion.div whileTap={{scale : 0.75}} className=" border py-8 rounded-xl shadow-xl bg-blue-100">
+          <motion.div whileHover={{scale : 0.9}} className=" border py-8 rounded-xl shadow-xl bg-blue-100">
             <p className=" text-5xl font-bold text-indigo-600">120K</p>
             <p className=" text-gray-400 mt-2">Transactions</p>
           </motion.div>
