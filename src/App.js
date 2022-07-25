@@ -35,7 +35,6 @@ const App = () => {
     <Route path="/delivery" element={<DeliveryArea/>}/>
     <Route path="/" element={<Maincontainer />} />
     <Route path="/createItem" element={<CreateContainer />} />
-    <Route path="/" element={<HomeContainer/>}/>
     <Route path="/" element={<MenuContainer/>}/>
     <Route path="/about" element={<CartContainer/>}/>
     <Route path="/contact" element={<CartContainer/>}/>

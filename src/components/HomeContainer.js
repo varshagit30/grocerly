@@ -5,6 +5,8 @@ import g1 from "./img/g1.png";
 import meat from "./img/meat.png";
 import s1 from "./img/s1.png";
 import { motion } from "framer-motion";
+import {Link} from "react-router-dom";
+import MenuContainer from "./MenuContainer";
 
 
 const HomeContainer= () => {
@@ -33,6 +35,7 @@ const HomeContainer= () => {
                      {" "} Get fresh groceries in just one click! 
                 </p>
 
+                <Link to ={"/"}>
                 <motion.button 
                 whileTap={{scale : 0.75}}
                 type="button"
@@ -41,6 +44,7 @@ const HomeContainer= () => {
                 >
                     Order Now
                 </motion.button>
+                </Link>
             </div>
 
             <div className=" py-2 flex-1 flex items-center">

@@ -8,6 +8,7 @@ import { useStateValue } from "../context/StateProvider";
 import CartContainer from "./CartContainer";
 
 
+
 const Maincontainer = () => {
   const [{foodItems, cartShow}, dispatch] = useStateValue();
   const [scrollValue, setscrollValue] = useState(0);
@@ -48,8 +49,10 @@ useEffect(() => {}, [scrollValue, cartShow]);
       data={foodItems?.filter((n) => n.category === "Veggies")}
       />
     </section>
+ 
 
     <MenuContainer/>
+
     {cartShow && (
       <CartContainer/>
     )}

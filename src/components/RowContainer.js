@@ -5,8 +5,7 @@ import { useStateValue} from '../context/StateProvider';
 import { actionType } from '../context/reducer';
 import { useState } from 'react';
 
-const RowContainer = ({ flag, data, scrollValue }) => 
-{
+const RowContainer = ({ flag, data, scrollValue }) => {
     const rowContainer = useRef();
     const [items, setItems] = useState([])
 
@@ -32,7 +31,8 @@ const RowContainer = ({ flag, data, scrollValue }) =>
   return (
     <div 
     ref={rowContainer}
-      className= {'w-full my-12 overflow-x-scroll scrollbar-none  scroll-smooth flex items-center gap-2  ${ flag  ? "overflow-x-scroll "  : "overflow-x-hidden flex-wrap" }'} >
+      className= {'w-full my-12 overflow-x-scroll scrollbar-none scroll-smooth flex items-center gap-2 ${ ... flag ? "overflow-x-scroll" : "overflow-x-hidden flex-wrap" }'}
+    >
         {data && data.map(item => (
         <div 
         key={item.id} 
