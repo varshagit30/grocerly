@@ -6,6 +6,7 @@ import t from "./img/trans.png";
 import g from "./img/gen.png";
 import d from "./img/del.png";
 import Grocerly from "./Grocerly";
+import Footer from './Footer';
 
 
 const About = () => {
@@ -38,6 +39,7 @@ const About = () => {
           </motion.div>
         </div>
         <Grocerly/>
+        <Footer />
 
       {cartShow && (
       <CartContainer/>

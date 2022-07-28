@@ -6,6 +6,9 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import MenuContainer from "./MenuContainer";
 import { useStateValue } from "../context/StateProvider";
 import CartContainer from "./CartContainer";
+import Review from "./Review";
+import Footer from "./Footer";
+
 
 
 
@@ -49,10 +52,11 @@ useEffect(() => {}, [scrollValue, cartShow]);
       data={foodItems?.filter((n) => n.category === "Veggies")}
       />
     </section>
+    
  
 
     <MenuContainer/>
-
+    <Review />
     {cartShow && (
       <CartContainer/>
     )}

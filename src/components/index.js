@@ -11,3 +11,6 @@ export {default as CartContainer} from "./CartContainer";
 export {default as CartItem} from "./CartItem";
 export {default as DeliveryArea} from "./DeliveryArea";
 export {default as Grocerly} from "./Grocerly";
+export {default as Review} from "./Review";
+export {default as RevSlider} from "./RevSlider";
+export {default as Footer} from "./Footer";

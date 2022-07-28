@@ -52,12 +52,12 @@ const HomeContainer= () => {
                     <img src={s1} className=" ml-auto h-500" alt="hero-bg"/>
                     <div className="w-full h-full absolute -top-4 left-4 flex items-center justify-center px-30 py-16 gap-6 flex-wrap ">
                         
-                        <div className="w-190 min-w-[190px] p-4 bg-cardOverlay backdrop-blur-md rounded-lg 
+                        <div className=" lg:w-190 min-w-[190px]  p-4 bg-cardOverlay backdrop-blur-md rounded-lg 
                         flex flex-col items-center justify-center cursor-pointer drop-shadow-lg">
-                            <img src={p1}className="w-40 -mt-20" alt="p1"/>
-                            <p className="text-base  text-gray-500 font-semibold my-2">Fresh Fruits</p>
+                            <img src={p1}className="w-20 -mt-10 lg:w-40 lg:-mt-20" alt="p1"/>
+                            <p className="text-base lg:text-base  text-gray-500 font-semibold mt-2 lg:my-2">Fresh Fruits</p>
                              <p>
-                                <span className="text-base text-red-600 font-semibold my-3">Rs. </span>100
+                                <span className="text-base text-red-600 font-semibold  my-1 lg:my-3">Rs. </span>100
                                 </p>
                             
                         </div>
